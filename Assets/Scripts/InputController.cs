@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class InputController : MSingleton<InputController>
 {
-    public event Action OnFingerDown;
-    public event Action<Vector3> OnFingerUp;
+    public static event Action OnFingerDown;
+    public static event Action<Vector3> OnFingerUp;
 
     private bool fingerDown = false;
 

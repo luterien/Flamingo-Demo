@@ -6,13 +6,14 @@ public class UnitController : MSingleton<UnitController>
 {
     public List<Unit> units;
 
-    public Unit activeUnit;
+    private Unit activeUnit;
+
+    public Unit Current => activeUnit;
+    public Unit NextUnit => activeUnit;
 
     public void SwitchToNextUnit()
     {
         activeUnit = units[0];
-        activeUnit.SetPlayer();
+        activeUnit.ActivatePlayer();
     }
-
-
 }
