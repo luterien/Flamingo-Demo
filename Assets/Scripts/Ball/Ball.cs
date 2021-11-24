@@ -1,21 +1,15 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Assets.Scripts.Ball
+public class Ball : MonoBehaviour
 {
-    public class Ball : MonoBehaviour
+    public float speed;
+    public Rigidbody rBody;
+
+    public void Shoot(Vector3 direction)
     {
-
-        // Use this for initialization
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+        var velocity = direction * speed;
+        velocity.y = 1f;
+        rBody.velocity = velocity;
     }
 }

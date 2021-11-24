@@ -6,7 +6,7 @@ public class Unit : MonoBehaviour
     public GameObject aiComponent;
     public GameObject playerComponent;
 
-    public void SetAI()
+    private void Awake()
     {
         playerComponent.SetActive(false);
         aiComponent.SetActive(true);

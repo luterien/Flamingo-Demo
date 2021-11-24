@@ -1,7 +1,11 @@
+using System;
 using UnityEngine;
 
 public class InputController : MSingleton<InputController>
 {
+    public event Action OnFingerDown;
+    public event Action<Vector3> OnFingerUp;
+
     private bool fingerDown = false;
 
     private Vector3 MousePosition => new Vector3(Input.mousePosition.x, 0f, Input.mousePosition.y);
@@ -10,7 +14,6 @@ public class InputController : MSingleton<InputController>
         get {
             if (!fingerDown)
                 return Vector3.zero;
-
             return Vector3.Normalize(MousePosition - screenCenterPosition);
         }
     }
@@ -30,9 +33,15 @@ public class InputController : MSingleton<InputController>
     private void CheckInput()
     {
         if (Input.GetMouseButtonDown(0))
+        {
             fingerDown = true;
+            OnFingerDown?.Invoke();
+        }
 
         if (Input.GetMouseButtonUp(0))
+        {
+            OnFingerUp?.Invoke(MovementVector);
             fingerDown = false;
+        }
     }
 }

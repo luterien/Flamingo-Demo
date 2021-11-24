@@ -1,11 +1,27 @@
-using System.Collections.Generic;
+using System.Collections;
+using UnityEngine;
 
-public class GameController : MSingleton<InputController>
+public class GameController : MSingleton<GameController>
 {
-    public List<Unit> units;
+    private InputController inputController;
+    private UnitController unitController;
+
+    private void Awake()
+    {
+        inputController = InputController.Instance;
+        unitController = UnitController.Instance;
+    }
 
     private void Start()
     {
-        
+        StartCoroutine(StartGame());
+    }
+
+    private IEnumerator StartGame()
+    {
+        yield return new WaitForSeconds(2f);
+
+        inputController.enabled = true;
+        unitController.SwitchToNextUnit();
     }
 }
