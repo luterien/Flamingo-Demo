@@ -9,7 +9,15 @@ public class UnitController : MSingleton<UnitController>
     private Unit activeUnit;
 
     public Unit Current => activeUnit;
-    public Unit NextUnit => activeUnit;
+    public Unit NextUnit {
+        get {
+            var nextIndex = units.IndexOf(Current) + 1;
+            if (nextIndex < units.Count)
+                return units[nextIndex];
+
+            return null;
+        }
+    }
 
     public void SwitchToNextUnit()
     {

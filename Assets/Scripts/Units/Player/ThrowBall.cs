@@ -32,6 +32,10 @@ public class ThrowBall : MonoBehaviour
         ball.transform.position = ballSpawnPoint.position;
         ball.GetComponent<Ball>().Shoot(direction);
 
+        var nextUnit = UnitController.Instance.NextUnit;
+        if (nextUnit != null)
+            nextUnit.ActivateAI();
+
         OnExecute?.Invoke();
     }
 
@@ -48,6 +52,7 @@ public class ThrowBall : MonoBehaviour
 
     private void OnDisable()
     {
+        StopAllCoroutines();
         InputController.OnFingerUp -= Execute;
     }
 }

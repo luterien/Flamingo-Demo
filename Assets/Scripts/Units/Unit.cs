@@ -9,14 +9,13 @@ public class Unit : MonoBehaviour
 
     [Header("References")]
     public Transform ballSpawnPoint;
-    public GameObject ballPrefab;
-
-    [Header("Animation")]
-    public Animator animator;
+    [Space]
+    public Transform hands;
 
     private void Awake()
     {
-        ActivateAI();
+        aiComponent.SetActive(false);
+        playerComponent.SetActive(false);
     }
 
     public void ActivatePlayer()

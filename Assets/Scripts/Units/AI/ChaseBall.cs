@@ -3,8 +3,27 @@ using UnityEngine;
 
 public class ChaseBall : MonoBehaviour
 {
-    public void Execute()
+    public Transform mainBody;
+    public float movespeed;
+
+    private Ball ball;
+
+    private void Update()
     {
-        var ball = FindObjectOfType<Ball>();
+        if (ball != null)
+        {
+            var ballPos = ball.transform.position;
+
+            mainBody.position = Vector3.MoveTowards(
+                mainBody.position, 
+                new Vector3(ballPos.x, mainBody.position.y, mainBody.position.z),
+                movespeed * Time.deltaTime
+            );
+        }
+    }
+
+    private void OnEnable()
+    {
+        ball = FindObjectOfType<Ball>();
     }
 }
