@@ -16,11 +16,19 @@ public class ChaseBall : MonoBehaviour
         {
             var ballPos = ball.transform.position;
 
-            mainBody.position = Vector3.MoveTowards(
+            var newPos = Vector3.MoveTowards(
                 mainBody.position, 
                 new Vector3(ballPos.x, mainBody.position.y, mainBody.position.z),
                 movespeed * Time.deltaTime
             );
+
+            if (Boundaries.OutOfBounds(newPos))
+            {
+                enabled = false;
+                return;
+            }
+
+            mainBody.position = newPos;
         }
     }
 

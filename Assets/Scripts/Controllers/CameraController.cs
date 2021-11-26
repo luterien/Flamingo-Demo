@@ -10,4 +10,9 @@ public class CameraController : MSingleton<CameraController>
     {
         cam.Follow = target;
     }
+
+    public void Deactivate()
+    {
+        cam.enabled = false;
+    }
 }

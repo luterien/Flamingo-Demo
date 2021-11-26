@@ -37,4 +37,10 @@ public class UnitController : MSingleton<UnitController>
             activeUnit.ActivatePlayer();
         }
     }
+
+    public void DeactivateAll()
+    {
+        foreach (var unit in units)
+            unit.Deactivate();
+    }
 }
