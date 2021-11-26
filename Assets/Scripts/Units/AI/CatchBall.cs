@@ -25,5 +25,20 @@ public class CatchBall : MonoBehaviour
     private void DoCatch()
     {
         animator.SetTrigger("Catch");
+
+        var chaseComponent = transform.parent.GetComponent<ChaseBall>();
+        chaseComponent.enabled = false;
+
+        CameraController.Instance.SetFollowTarget(sourceUnit.transform);
+
+        StartCoroutine(TakeOver());
+    }
+
+    private IEnumerator TakeOver()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        sourceUnit.model.rotation = Quaternion.identity;
+        UnitController.Instance.SwitchToNextUnit();
     }
 }

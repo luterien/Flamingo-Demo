@@ -32,6 +32,8 @@ public class ThrowBall : MonoBehaviour
         ball.transform.position = ballSpawnPoint.position;
         ball.GetComponent<Ball>().Shoot(direction);
 
+        CameraController.Instance.SetFollowTarget(ball.transform);
+
         var nextUnit = UnitController.Instance.NextUnit;
         if (nextUnit != null)
             nextUnit.ActivateAI();

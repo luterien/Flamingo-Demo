@@ -4,6 +4,8 @@ using UnityEngine;
 public class ChaseBall : MonoBehaviour
 {
     public Transform mainBody;
+    public Animator animator;
+
     public float movespeed;
 
     private Ball ball;
@@ -25,5 +27,12 @@ public class ChaseBall : MonoBehaviour
     private void OnEnable()
     {
         ball = FindObjectOfType<Ball>();
+
+        animator.SetBool("Moving", true);
+    }
+
+    private void OnDisable()
+    {
+        animator.SetBool("Moving", false);
     }
 }

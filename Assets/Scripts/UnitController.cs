@@ -21,7 +21,12 @@ public class UnitController : MSingleton<UnitController>
 
     public void SwitchToNextUnit()
     {
-        activeUnit = units[0];
-        activeUnit.ActivatePlayer();
+        if (activeUnit == null)
+            activeUnit = units[0];
+        else
+            activeUnit = NextUnit;
+
+        if (activeUnit != null)
+            activeUnit.ActivatePlayer();
     }
 }

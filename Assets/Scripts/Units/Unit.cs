@@ -10,7 +10,7 @@ public class Unit : MonoBehaviour
     [Header("References")]
     public Transform ballSpawnPoint;
     [Space]
-    public Transform hands;
+    public Transform model;
 
     private void Awake()
     {

@@ -144,7 +144,7 @@ MonoBehaviour:
   aiComponent: {fileID: 7678682735646904760}
   playerComponent: {fileID: 7678682736186551713}
   ballSpawnPoint: {fileID: 7678682734815915961}
-  hands: {fileID: 7678682734815915961}
+  model: {fileID: 7901962943173647729}
 --- !u!1 &7678682734815915910
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainBody: {fileID: 7678682734599365602}
+  animator: {fileID: 4272022389746272011}
   movespeed: 2
 --- !u!1 &7678682736186551713
 GameObject:
