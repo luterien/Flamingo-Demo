@@ -13,6 +13,7 @@ public class StickToTarget : MonoBehaviour
 
         ballRigidbody.velocity = Vector3.zero;
         ballRigidbody.useGravity = false;
+        ballRigidbody.isKinematic = true;
 
         transform.SetParent(target.ballSpawnPoint);
         transform.DOLocalMove(Vector3.zero, moveDuration);

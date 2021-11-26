@@ -10,6 +10,8 @@ public class Ball : MonoBehaviour
     {
         var velocity = direction * speed;
         velocity.y = 1f;
+        rBody.useGravity = true;
+        rBody.isKinematic = false;
         rBody.velocity = velocity;
     }
 }

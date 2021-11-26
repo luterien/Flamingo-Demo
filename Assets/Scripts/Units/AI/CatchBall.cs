@@ -40,5 +40,7 @@ public class CatchBall : MonoBehaviour
 
         sourceUnit.model.rotation = Quaternion.identity;
         UnitController.Instance.SwitchToNextUnit();
+
+        animator.ResetTrigger("Catch");
     }
 }

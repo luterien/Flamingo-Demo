@@ -28,7 +28,14 @@ public class ThrowBall : MonoBehaviour
 
         yield return new WaitForSeconds(ballShootDelay);
 
-        var ball = Instantiate(ballPrefab);
+        GameObject ball;
+
+        if (ballSpawnPoint.childCount > 0)
+            ball = ballSpawnPoint.GetChild(0).gameObject;
+        else
+            ball = Instantiate(ballPrefab);
+
+        ball.transform.SetParent(null);
         ball.transform.position = ballSpawnPoint.position;
         ball.GetComponent<Ball>().Shoot(direction);
 

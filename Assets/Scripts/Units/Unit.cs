@@ -14,8 +14,7 @@ public class Unit : MonoBehaviour
 
     private void Awake()
     {
-        aiComponent.SetActive(false);
-        playerComponent.SetActive(false);
+        Deactivate();
     }
 
     public void ActivatePlayer()
@@ -28,5 +27,11 @@ public class Unit : MonoBehaviour
     {
         playerComponent.SetActive(false);
         aiComponent.SetActive(true);
+    }
+
+    public void Deactivate()
+    {
+        aiComponent.SetActive(false);
+        playerComponent.SetActive(false);
     }
 }
